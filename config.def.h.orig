@@ -273,17 +273,7 @@ static Shortcut shortcuts[] = {
   { ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
   { ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
   { MODKEY,               XK_Page_Up,     kscrollup,      {.i = -1} },
-<<<<<<<
   { MODKEY,               XK_Page_Down,   kscrolldown,    {.i = -1} },
-=======
-	{ XK_KP_Delete,     ControlMask,    "\033[3;5~",    +1,    0},
-	{ XK_KP_Delete,     ShiftMask,      "\033[2K",      -1,    0},
-	{ XK_KP_Delete,     ShiftMask,      "\033[3;2~",    +1,    0},
-	{ XK_KP_Delete,     XK_ANY_MOD,     "\033[3~",       -1,    0},
-	{ XK_KP_Delete,     XK_ANY_MOD,     "\033[3~",      +1,    0},
-	{ XK_KP_Multiply,   XK_ANY_MOD,     "\033Oj",       +2,    0},
-	{ XK_KP_Add,        XK_ANY_MOD,     "\033Ok",       +2,    0},
->>>>>>>
   { MODKEY,               XK_k,           kscrollup,      {.i =  1} },
   { MODKEY,               XK_j,           kscrolldown,    {.i =  1} },
   { MODKEY,               XK_Up,          kscrollup,      {.i =  1} },
@@ -351,17 +341,7 @@ static uint ignoremod = Mod2Mask|XK_SWITCH_MOD;
 static uint forceselmod = ShiftMask;
 
 /*
-<<<<<<<
  * This is the huge key array which defines all compatibility to the Linux
-=======
-	{ XK_Delete,        ControlMask,    "\033[3;5~",    +1,    0},
-	{ XK_Delete,        ShiftMask,      "\033[2K",      -1,    0},
-	{ XK_Delete,        ShiftMask,      "\033[3;2~",    +1,    0},
-	{ XK_Delete,        XK_ANY_MOD,     "\033[3~",       -1,    0},
-	{ XK_Delete,        XK_ANY_MOD,     "\033[3~",      +1,    0},
-	{ XK_BackSpace,     XK_NO_MOD,      "\177",          0,    0},
-	{ XK_BackSpace,     Mod1Mask,       "\033\177",      0,    0},
->>>>>>>
  * world. Please decide about changes wisely.
  */
 static Key key[] = {
