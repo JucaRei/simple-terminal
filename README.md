@@ -7,29 +7,43 @@
 ## Dependencies
 
 ```
-# Void 
+# Void
 xbps-install libXft-devel libX11-devel harfbuzz-devel libXext-devel libXrender-devel libXinerama-devel
- 
-# Debian (and ubuntu probably)
-apt install build-essential libxft-dev libharfbuzz-dev 
 
-(most of these are already installed on Arch based distros)
+# Debian (and ubuntu probably)
+apt install build-essential libxft-dev libharfbuzz-dev libgd-dev
+
+# Nix
+nix develop github:siduck/st
+
+# Arch
+pacman -S gd
 
 # Install font-symbola and libXft-bgra
 ```
+
+## Try it out!
+
+Before you install st on your system, you might want to try it out first.
+To do so, simply run (requires [Nix](https://nixos.org/download.html))
+`nix run github:siduck/st`
 
 ## Install
 
 ```
 git clone https://github.com/siduck/st.git
 cd st
-sudo make install 
+sudo make install
 xrdb merge pathToXresourcesFile
 ```
 
-(note : put the xrdb merge command in your wm's autostart or similar) 
+(note : put the xrdb merge command in your wm's autostart or similar)
 
-## Fonts 
+### Using Nix flakes
+
+Add `st.url = "github:siduck/st";` to your inputs and install `inputs.st.packages."${system}".st-snazzy` package
+
+## Fonts
 
 - Install JetbrainsMono Mono Nerd Font or any nerd font from [here](https://www.nerdfonts.com/font-downloads)
 
@@ -62,18 +76,19 @@ alias rel="xrdb merge pathToXresourcesFile && kill -USR1 $(pidof st)"
 ```
 
 ## Ram usage comparison with other terminals and speed test
+
 <img src="https://raw.githubusercontent.com/siduck/dotfiles/all/rice%20flex/terminal_ramUsage.jpg"> <br><br>
 <img src="https://raw.githubusercontent.com/siduck/dotfiles/all/rice%20flex/speedTest.png"> <br><br>
 <img src="https://raw.githubusercontent.com/siduck/dotfiles/all/rice%20flex/speedTest1.png"> <br><br>
 
-( note : This benchmark was done on my low end machine which has a pentium cpu so the speed results might vary )
+( note : This benchmark was done on my low-end machine which has a pentium cpu so the speed results might vary )
 
 ## Default Keybindings<br>
 
 <pre>
 ctrl + shift + c        Copy  <br>
 ctrl + shift + v        Paste <br>
-right click on the terminal ( will paste the copied thing ) 
+right click on the terminal ( will paste the copied thing )
 
 (Zoom)
 alt  + comma            Zoom in <br>
@@ -85,7 +100,7 @@ alt  + s                Increase Transparency<br>
 alt  + a                Decrease Transparency<br>
 alt  + m                Reset Transparency<br>
 
-alt + k                 scroll down 
+alt + k                 scroll down
 alt + j                 scroll up
 
 mod + shift + enter    open a new terminal with same cwd ( current working directory )
@@ -97,7 +112,7 @@ you can change all of these in config.h
 ## Themes/Fonts used
 
 - ls-icons: https://github.com/Yash-Handa/logo-ls <br>
-- Xresources: onedark ( just xrdb merge xresourcesfile , do this everytime you make any change to xresources file ) from this repo itself.<br>
+- Xresources: onedark (just `xrdb merge xresourcesfile`, do this everytime you make any change to xresources file) from this repo itself.<br>
 - Font: JetbrainsMono Nerd Font + material design icon fonts
 
 ## Screenshots:
@@ -109,15 +124,5 @@ you can change all of these in config.h
 
 # Credits
 
-- [live-reload](https://github.com/nimaipatel/st) 
+- [live-reload](https://github.com/nimaipatel/st)
 - [patch_column](https://github.com/nimaipatel/st/blob/all/patches/7672445bab01cb4e861651dc540566ac22e25812.diff)
-
-## Other St builds <br>
-
-1. Sixel St (sixel branch , with sixel graphics support)
-2. St with vim-browse (vim-browse branch , navigate within like vim)
-3. Awesomewm users might face a weird gaps issue (#23) so they need to use the anysize branch.
-
-- Use a different st build ( clone its branch)
-
-`example: git clone https://github.com/siduck/st --branch sixel`
